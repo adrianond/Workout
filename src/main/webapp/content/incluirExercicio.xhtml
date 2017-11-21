@@ -1,0 +1,81 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/templates/mainLayout.xhtml"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="conteudo">
+		<h:form id="incluirExercicio">
+			<p:messages id="messages" showDetail="true" autoUpdate="true"
+				closable="true" />
+			<p:panel header="Exercicio">
+				<p:tabView>
+					<p:tab title="Incluir Exercicio">
+						<h:panelGrid columns="2">
+							<h:outputLabel value="Musculo" for="musculo" title="Musculo" />
+							<p:selectOneMenu value="#{exercicioBean.musculo}" id="musculo">
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+								<f:selectItems value="#{exercicioBean.mapaMusculo}" />
+							</p:selectOneMenu>
+							<h:outputLabel value="Exercicio" for="exercicio"
+								title="Exercicio" />
+							<p:inputText id="exercicio" value="#{exercicioBean.exercicio}"
+								maxlength="30" size="32" />
+							<h:panelGrid styleClass="incluirTreino">
+								<p:commandButton action="#{exercicioBean.gravar}" value="OK"
+									title="OK" />
+							</h:panelGrid>
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="Alterar Exercicio">
+						<h:panelGrid columns="3">
+							<h:outputLabel value="Musculo" title="Musculo" />
+							<p:selectOneMenu value="#{exercicioBean.selecionarMusculo}">
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+								<f:selectItems value="#{exercicioBean.mapaMusculo}" />
+							</p:selectOneMenu>
+							<p:commandButton action="#{exercicioBean.selectExercicios}"
+								ajax="true" styleClass="styleButton" value="Pesquisar"
+								title="Pesquisar" />
+							<h:outputLabel value="Exercicio" title="Exercicio" />
+							<p:selectOneMenu id="teste2"
+								value="#{exercicioBean.alterarExercicio}">
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+								<f:selectItems value="#{exercicioBean.retornoSelect}" />
+							</p:selectOneMenu>
+							<h:outputLabel />
+							<h:outputLabel value="Novo Exercicio" title="Novo Exercicio" />
+							<p:inputText value="#{exercicioBean.novoExercicio}"
+								maxlength="30" size="32" />
+							<h:outputLabel />
+							<h:panelGrid styleClass="incluirTreino">
+								<p:commandButton action="#{exercicioBean.editar}" value="Confirmar"
+									title="Confirmar" />
+							</h:panelGrid>
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="Deletar Exercicio">
+						<h:panelGrid columns="3" id="deletar">
+							<h:outputLabel value="Musculo" title="Musculo" />
+							<p:selectOneMenu value="#{exercicioBean.selecionarMusculo}">
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+								<f:selectItems value="#{exercicioBean.mapaMusculo}" />
+							</p:selectOneMenu>
+							<p:commandButton action="#{exercicioBean.selectExercicios}"
+								ajax="true" styleClass="styleButton" value="Pesquisar"
+								title="Pesquisar" />
+							<h:outputLabel value="Exercicio" title="Exercicio" />
+							<p:selectOneMenu id="teste" value="#{exercicioBean.excluir}">
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+								<f:selectItems value="#{exercicioBean.retornoSelect}" />
+							</p:selectOneMenu>
+							<p:commandButton action="#{exercicioBean.deletar}"
+								styleClass="styleButton" value="Excluir" title="Excluir" />
+						</h:panelGrid>
+					</p:tab>
+				</p:tabView>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

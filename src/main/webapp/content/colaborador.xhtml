@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/templates/mainLayout.xhtml"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="conteudo">
+		<h:form id="formColaborador">
+			<p:panel header="Cadastrar Colaborador">
+				<p:tabView>
+					<p:tab title="Dados Pessoais">
+						<h:panelGrid columns="2">
+							<h:outputLabel value="Nome:" title="Nome" />
+							<p:inputText value="" id="nome" maxlength="38" size="40" />
+							<p:outputLabel value="Idade" title="Idade" for="idade" />
+							<p:inputText value="" id="idade" label="idade" size="3" maxlength="2" />
+							<h:outputLabel value="CPF:" title="CPF" />
+							<p:inputText value="" id="cpf" maxlength="11" size="13" />
+							<h:outputLabel value="RG:" title="rg" />
+							<p:inputText value="" id="rg" maxlength="9" size="11" />
+							<p:outputLabel value="Data Nascimento" title="Data Nascimento"  />
+							<p:calendar  maxlength="10" size="12"/>
+							<p:outputLabel value="Sexo" title="Sexo" for="sexo" />
+							<p:selectOneMenu id="sexo" label="sexo" >
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+								<f:selectItems />
+							</p:selectOneMenu>
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="Endereço">
+						<h:panelGrid columns="2">
+							<p:outputLabel value="Endereço" for="endereco" title="Endereço" />
+							<p:inputText value="" id="endereco" label="endereco" title="Endereço" maxlength="40" size="42" />
+							<p:outputLabel value="Numero" title="Numero" />
+							<p:inputText value="" id="numero" size="6" maxlength="5" />
+							<p:outputLabel value="Complemento" for="complemento" title="Complemento" />
+							<p:inputText value="" id="complemento" label="complemento" title="Complemento" size="6" maxlength="5" />
+							<p:outputLabel value="Bairro" title="Bairro" for="bairro" />
+							<p:inputText value="" id="bairro" label="bairro" title="Bairro" size="30" maxlength="28" />
+							<p:outputLabel value="Cidade" title="Cidade" for="cidade" />
+							<p:inputText value="" id="cidade" label="cidade" size="30" maxlength="28" />
+							<p:outputLabel value="Estado" title="Estado" for="estado" />
+							<p:selectOneMenu id="estado" label="estado">
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+								<f:selectItems />
+							</p:selectOneMenu>
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="Dados Profissionais">
+						<h:panelGrid columns="2">
+							<h:outputLabel value="Carteira Trabalho:" title="Carteira Trabalho" />
+							<p:inputText value="" id="carteira" maxlength="12" size="10" />
+							<h:outputLabel value="PIS:" title="PIS" />
+							<p:inputText value="" id="pis" maxlength="12" size="10" />
+							<p:outputLabel value="Data Admissão" title="Data Admissão"  />
+							<p:calendar maxlength="10" size="12"/>
+							<p:outputLabel value="Observações" title="Observações" for="observações" />
+							<p:inputTextarea id="observações" rows="5" cols="50" label="observações" />
+						</h:panelGrid>
+					</p:tab>
+				</p:tabView>
+				<p:commandButton value="Cadastrar" id="cadastrar" title="Cadastrar" styleClass="buttonMatriculaStyle"/>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

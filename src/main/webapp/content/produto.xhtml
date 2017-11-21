@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/templates/mainLayout.xhtml"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="conteudo">
+		<h:form id="formProduto">
+			<p:panel header="Casdastrar Produto">
+						<h:panelGrid columns="2">
+							<h:outputLabel value="Descrição:" title="Descrição" />
+							<p:inputText value="" id="descricao" maxlength="38" size="40" />
+							<p:outputLabel value="Código" title="Código" for="codigo" />
+							<p:inputText value="" id="codigo" label="codigo" size="12" maxlength="10" />
+							<h:outputLabel value="QTDA:" title="QTDA" />
+							<p:inputText value="" id="qtda" maxlength="3" size="4" />
+							<h:outputLabel value="Categoria:" title="Categoria" />
+							<p:selectOneMenu id="categoria"  >
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+								<f:selectItems />
+							</p:selectOneMenu>
+							<h:outputLabel value="Valor Compra:" title="Valor Compra" />
+							<p:inputText value="" id="valor" maxlength="9" size="11" />
+							<p:outputLabel value="Margem R$" title="Margem R$"  />
+							<p:inputText value=""  id="margem" />
+							<h:outputLabel value="Valor Venda:" title="Valor Venda" />
+							<p:inputText value="" id="valorVenda" maxlength="9" size="11" />
+						</h:panelGrid>
+				<p:commandButton value="Cadastrar" id="cadastrar" title="Cadastrar" styleClass="buttonMatriculaStyle"/>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html" 
+   xmlns:t="http://myfaces.apache.org/tomahawk"
+   xmlns:f="http://java.sun.com/jsf/core"
+   template="/templates/mainLayout.xhtml"
+   xmlns:p="http://primefaces.org/ui">
+<ui:define name="conteudo">
+	<h:form id="pesquisarAlunoForm">
+			<p:messages autoUpdate="true"/>
+			<p:panel header="Consultar Treino">
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Nome:" for="nome" title="Nome"/>
+					<p:inputText id="nome" label="nome" value="#{pesquisarTreinoBean.aluno.nome}"  maxlength="38" size="40"  />
+					<h:outputLabel value="CPF:" for="cpf" title="CPF" />
+					<p:inputText id="cpf" label="cpf" value="#{pesquisarTreinoBean.aluno.CPF}" maxlength="11" size="13" onblur="onlyValuesNumber(this.value)" />
+					<h:outputLabel value="Matricula:" for="cpf" title="Matricula"/>
+					<p:inputText id="matricula" label="matricula" value="#{pesquisarTreinoBean.aluno.matricula}" maxlength="10" size="12" onkeypress="onlyValuesNumber(this.value)" />
+					<h:panelGrid  styleClass="buttonStyle">
+					   <p:commandButton id="pesquisar" value="Pesquisar" action="#{pesquisarTreinoBean.dadosSerieTreino}" title="Pesquisar" icon="ui-icon-search"/>
+				    </h:panelGrid>
+				</h:panelGrid>
+         </p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

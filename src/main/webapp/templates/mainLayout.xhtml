@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Body Builder</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="../resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="../resources/js/funcoes.js"></script>
+</h:head>
+
+<h:body styleClass="bodyColor">
+
+<!-- start header -->
+<div id="header">
+  <ui:insert name="header">
+      <div class="paragrafoStyle">
+        Body Builder Gym
+      </div>
+      <h:form styleClass="formClass">
+       <p>
+          <h:outputText value="#{beanAuxiliar.data}" />
+	   </p>
+		<h:commandButton value="Sair" styleClass="commandButtonStyle" />
+		<h:commandLink value="Ajuda" styleClass="commandLinkStyle" />
+	  </h:form>
+  </ui:insert>
+</div>
+<!-- end header -->
+
+<!-- start page -->
+ <div align="center" id="center">
+     <!--  <p:layout id="layout">   -->
+                <!-- <p:layoutUnit  position="north" size="100" >  
+                       <h:graphicImage styleClass="imageStyle" url="/resources/imagens/corrida-orientada-header.jpg" alt="100px" />
+                </p:layoutUnit>   -->
+                <!-- <p:layoutUnit position="west" size="220"> -->
+               <div id="interna">
+               <div id="subHeader" class="contentStyle"></div>
+                   <div id="menu">  
+                    <ui:insert name="menu">
+                        <h:form>
+                            <p:menu style="width: 200px">
+                                <p:submenu label="Cadastro">
+                                    <p:menuitem value="Aluno" icon="ui-icon-contact" url="/content/matricula.xhtml"  />
+                                    <p:menuitem value="Colaborador" icon="ui-icon-contact" url="/content/colaborador.xhtml" />
+                                    <p:menuitem value="Produto" icon="ui-icon-contact" url="/content/produto.xhtml"/>
+                                    <p:menuitem value="Treino" icon="ui-icon-contact" url="/content/treinoNovo.xhtml" />
+                                    <p:menuitem value="Exercicio" icon="ui-icon-contact" url="/content/incluirExercicio.xhtml"/>
+                                </p:submenu>
+                                <p:submenu label="Pesquisar">
+                                    <p:menuitem value="Treino" icon="ui-icon-search" url="/content/treino.xhtml"/>
+                                    <p:menuitem value="Aluno" icon="ui-icon-search" url="/content/aluno.xhtml"/>
+                                </p:submenu>
+                                <p:submenu label="Academia">
+                                    <p:menuitem value="Aulas" icon="ui-icon-search" />
+                                    <p:menuitem value="Parcerias" icon="ui-icon-search" />
+                                    <p:menuitem value="Suplementos" icon="ui-icon-search" />
+                                    <p:menuitem value="Fornecedores" icon="ui-icon-search" />
+                                </p:submenu>
+                            </p:menu>
+                        </h:form>
+                    </ui:insert>
+                    </div>
+                <!-- </p:layoutUnit> -->
+                
+               <!--  <p:layoutUnit id="contentStyle" position="center">  --> 
+                <div class="content">
+                    <ui:insert name="conteudo">
+                        O que estiver aqui será substituido!
+                    </ui:insert>
+               </div>
+             </div>
+                <!-- </p:layoutUnit> -->
+                
+      <!--  </p:layout>  -->
+ </div>     
+<!-- start footer -->
+<div id="footer">
+  <ui:insert name="footer">
+	<p>
+		&copy;2016 All Rights Reserved &nbsp;&bull;&nbsp; Design by: LTM Software INC.
+		
+	</p> 
+ </ui:insert>
+</div>
+</h:body>
+</html>

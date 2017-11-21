@@ -1,0 +1,73 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/templates/mainLayout.xhtml"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="conteudo">
+		<h:form id="formMatricula">
+		<p:messages id="messages" showDetail="true" autoUpdate="true"
+				closable="true" />
+			<p:panel header="Casdastrar Aluno">
+				<p:tabView>
+					<p:tab title="Dados Pessoais">
+						<h:panelGrid columns="2">
+							<h:outputLabel value="Nome:" for="nome" title="Nome" />
+							<p:inputText id="nome" label="nome" value="#{cadastroAlunoBean.aluno.nome}"  maxlength="38" size="40" />
+							<p:outputLabel value="Idade" title="Idade" for="idade" />
+							<p:inputText value="#{cadastroAlunoBean.aluno.idade}" id="idade" label="idade" size="3" maxlength="2"/>
+							<h:outputLabel value="CPF:" title="CPF" />
+							<p:inputText value="#{cadastroAlunoBean.aluno.CPF}" id="cpf" maxlength="11" size="13"/>
+							<h:outputLabel value="RG:" title="rg" />
+							<p:inputText value="#{cadastroAlunoBean.aluno.rg}" id="rg" maxlength="9" size="11"/>
+							<p:outputLabel value="Sexo" title="Sexo" for="sexo" />
+							<p:selectOneMenu value="#{cadastroAlunoBean.aluno.sexo}" id="sexo" label="sexo">
+								<f:selectItem itemLabel="Selecione uma opção" itemValue=""/>
+								<f:selectItems value="#{cadastroAlunoBean.sexoAluno}"/>
+							</p:selectOneMenu>
+							<p:outputLabel value="Data Nascimento" title="Data Nascimento"  />
+							<p:calendar value="#{cadastroAlunoBean.aluno.data_Nasc}" pattern="dd/MM/yyyy" maxlength="10" size="12"/>
+						 </h:panelGrid>
+				    </p:tab>
+					<p:tab title="Endereço">
+						<h:panelGrid columns="2">
+							<p:outputLabel value="Endereço" for="endereco" title="Endereço" />
+							<p:inputText value="#{cadastroAlunoBean.aluno.endereco}" id="endereco" label="endereco" title="Endereço" maxlength="40" size="42"/>
+							<p:outputLabel value="Numero" title="Numero" />
+							<p:inputText value="#{cadastroAlunoBean.aluno.numero}" id="numero" size="6" maxlength="5"/>
+							<p:outputLabel value="Complemento" for="complemento" title="Complemento" />
+							<p:inputText value="#{cadastroAlunoBean.aluno.complemento}" id="complemento" label="complemento" title="Complemento" size="6" maxlength="5"/>
+							<p:outputLabel value="Bairro" title="Bairro" for="bairro" />
+							<p:inputText value="#{cadastroAlunoBean.aluno.bairro}" id="bairro" label="bairro" title="Bairro" size="30" maxlength="28"/>
+							<p:outputLabel value="Cidade" title="Cidade" for="cidade" />
+							<p:inputText value="#{cadastroAlunoBean.aluno.cidade}" id="cidade" label="cidade" size="30" maxlength="28"/>
+							<p:outputLabel value="Estado" title="Estado" for="estado" />
+							<p:selectOneMenu value="#{cadastroAlunoBean.aluno.estado}" id="estado" label="estado">
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+								<f:selectItems value="#{cadastroAlunoBean.estados}"/>
+							</p:selectOneMenu>
+						</h:panelGrid>
+					</p:tab>
+					<!-- <p:tab title="Dados Matricula">
+						<h:panelGrid columns="2">
+							<p:outputLabel value="Data" title="Data de Matricula"  />
+							<p:calendar value="#{cadastroAlunoBean.aluno.data_Matricula}" pattern="dd/MM/yyyy" maxlength="10" size="12"/>
+							<p:outputLabel value="Vencimento" title="Vencimento"  />
+							<p:calendar value="#{cadastroAlunoBean.aluno.data_Vencimento}" pattern="dd/MM/yyyy" maxlength="10" size="12"/>
+							<p:outputLabel value="Plano" title="Plano" for="plano" />
+							<p:selectOneMenu value="#{cadastroAlunoBean.aluno.plano}" id="plano" label="plano">
+								<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+								<f:selectItems value="#{cadastroAlunoBean.plano}"/>
+							</p:selectOneMenu>
+							<p:outputLabel value="Observações" title="Observações" for="observações" />
+							<p:inputTextarea id="observações" rows="5" cols="50" label="observações"/>
+						</h:panelGrid> 
+					</p:tab>  -->
+				</p:tabView>
+				<p:commandButton action="#{cadastroAlunoBean.cadastarNovoAluno}" value="Cadastrar" id="cadastrar" title="Cadastrar" styleClass="buttonMatriculaStyle"/>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

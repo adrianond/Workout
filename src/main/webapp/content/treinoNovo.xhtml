@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html" 
+   xmlns:t="http://myfaces.apache.org/tomahawk"
+   xmlns:f="http://java.sun.com/jsf/core"
+   template="/templates/mainLayout.xhtml"
+   xmlns:p="http://primefaces.org/ui">
+<ui:define name="conteudo">
+	<h:form id="novoTreino">
+			<p:messages autoUpdate="true"/>
+			<p:panel header="Incluir Treino">
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Matricula" for="matricula" title="Matricula"/>
+					<p:inputText id="matricula"  value=""  maxlength="6" size="8"/>
+					<h:outputLabel value="Musculo" title="Musculo" />
+					<p:selectOneMenu  value="#{novoExercicioBean.musculo}">
+					   <f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+					   <f:selectItems  value="#{novoTreinoBean.mapaMusculo}"/>
+					</p:selectOneMenu>
+					<h:outputLabel value="Exercicio" for="exercicio" title="Exercicio" />
+					<p:selectOneMenu value="" id="exercicio">
+					   <f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+					   <f:selectItems value=""/>
+					</p:selectOneMenu>
+					<h:outputLabel value="Repetição" for="repetição" title="Retição" />
+					<p:selectOneMenu value="#{novoExercicioBean.repeticao}">
+					   <f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+					   <f:selectItems value="#{novoTreinoBean.mapaRepeticao}"/>
+					</p:selectOneMenu>
+					<h:panelGrid  styleClass="incluirTreino">
+					   <p:commandButton value="Pesquisar"  action="#{novoTreinoBean.selecionaExercicio}" title="Pesquisar"/>
+				    </h:panelGrid>
+				    <h:panelGrid  styleClass="incluirTreino">
+					   <p:commandButton id="incuirTreinoButton" value="OK"  title="OK"/>
+				    </h:panelGrid>
+				</h:panelGrid>
+         </p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
